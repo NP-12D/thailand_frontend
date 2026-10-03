@@ -40,7 +40,7 @@ export default function BlogPage() {
       </aside>
 
       
-      <div className="w-full shrink-0 overflow-x-hidden overflow-y-auto bg-[#0a0f0f] px-3 pb-12 pt-[70px] md:w-1/2 md:flex-1 md:px-0 md:py-14 md:pt-[70px]">
+      <div className="w-full py-14 shrink-0 overflow-x-hidden overflow-y-auto bg-[#0a0f0f] px-3 pb-12 pt-[70px] md:w-1/2 md:flex-1 md:px-8 md:py-14 md:pt-[70px]">
         {loading ? (
           <Loader />
         ) : (
