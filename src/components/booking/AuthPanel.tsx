@@ -1,4 +1,91 @@
-import { FormEvent, useState } from 'react';
-type Props={onLogin:(email:string,password:string)=>Promise<void>;onRegister:(values:Record<string,string>)=>Promise<void>};
-export default function AuthPanel({onLogin,onRegister}:Props){const [mode,setMode]=useState<'login'|'register'>('login');const [error,setError]=useState('');const submit=async(e:FormEvent<HTMLFormElement>)=>{e.preventDefault();const values=Object.fromEntries(new FormData(e.currentTarget)) as Record<string,string>;if(!/^\S+@\S+\.\S+$/.test(values.email||'')){setError('Enter a valid email address.');return}if(!values.password||values.password.length<6){setError('Password must be at least 6 characters.');return}try{if(mode==='register'){if(!values.firstName||!values.lastName){setError('Enter both your first and last name.');return}await onRegister(values);setMode('login');setError('Account created. Please sign in.')}else await onLogin(values.email,values.password)}catch(err){setError(err instanceof Error?err.message:'Unable to continue.')}};return <><h2 className="form-title">{mode==='login'?'Welcome back':'Create your account'}</h2><p className="form-subtitle">Sign in to make and manage your reservation.</p><div className="mb-6 flex rounded-full bg-white/5 p-1"><button onClick={()=>setMode('login')} className={`auth-tab ${mode==='login'?'auth-tab-active':''}`}>Login</button><button onClick={()=>setMode('register')} className={`auth-tab ${mode==='register'?'auth-tab-active':''}`}>Register</button></div><form noValidate onSubmit={submit}>{mode==='register'&&<div className="grid gap-5 sm:grid-cols-2"><Field label="First name" name="firstName"/><Field label="Last name" name="lastName"/></div>}<Field label="Email" name="email" type="email"/><Field label="Password" name="password" type="password"/>{error&&<p className="mt-3 text-sm text-[#ff7778]">{error}</p>}<button className="primary">{mode==='login'?'Sign In':'Create Account'}</button></form></>}
-function Field({label,name,type='text'}:{label:string;name:string;type?:string}){return <div className="mt-5"><label>{label}</label><input required name={name} type={type}/></div>}
+import { FormEvent, useState } from "react";
+type Props = {
+  onLogin: (email: string, password: string) => Promise<void>;
+  onRegister: (values: Record<string, string>) => Promise<void>;
+};
+export default function AuthPanel({ onLogin, onRegister }: Props) {
+  const [mode, setMode] = useState<"login" | "register">("login");
+  const [error, setError] = useState("");
+  const submit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const values = Object.fromEntries(new FormData(e.currentTarget)) as Record<
+      string,
+      string
+    >;
+    if (!/^\S+@\S+\.\S+$/.test(values.email || "")) {
+      setError("Enter a valid email address.");
+      return;
+    }
+    if (!values.password || values.password.length < 6) {
+      setError("Password must be at least 6 characters.");
+      return;
+    }
+    try {
+      if (mode === "register") {
+        if (!values.firstName || !values.lastName) {
+          setError("Enter both your first and last name.");
+          return;
+        }
+        await onRegister(values);
+        setMode("login");
+        setError("Account created. Please sign in.");
+      } else await onLogin(values.email, values.password);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unable to continue.");
+    }
+  };
+  return (
+    <>
+      <h2 className="form-title">
+        {mode === "login" ? "Welcome back" : "Create your account"}
+      </h2>
+      <p className="form-subtitle">
+        Sign in to make and manage your reservation.
+      </p>
+      <div className="mb-6 flex rounded-full bg-white/5 p-1">
+        <button
+          onClick={() => setMode("login")}
+          className={`auth-tab ${mode === "login" ? "auth-tab-active" : ""}`}
+        >
+          Login
+        </button>
+        <button
+          onClick={() => setMode("register")}
+          className={`auth-tab ${mode === "register" ? "auth-tab-active" : ""}`}
+        >
+          Register
+        </button>
+      </div>
+      <form noValidate onSubmit={submit}>
+        {mode === "register" && (
+          <div className="grid gap-5 sm:grid-cols-2">
+            <Field label="First name" name="firstName" />
+            <Field label="Last name" name="lastName" />
+          </div>
+        )}
+        <Field label="Email" name="email" type="email" />
+        <Field label="Password" name="password" type="password" />
+        {error && <p className="mt-3 text-sm text-[#ff7778]">{error}</p>}
+        <button className="primary">
+          {mode === "login" ? "Sign In" : "Create Account"}
+        </button>
+      </form>
+    </>
+  );
+}
+function Field({
+  label,
+  name,
+  type = "text",
+}: {
+  label: string;
+  name: string;
+  type?: string;
+}) {
+  return (
+    <div className="mt-5">
+      <label>{label}</label>
+      <input required name={name} type={type} />
+    </div>
+  );
+}
