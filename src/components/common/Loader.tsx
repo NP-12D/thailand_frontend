@@ -1,0 +1,1 @@
+export default function Loader(){return <div role="status" aria-label="Loading" className="flex min-h-40 items-center justify-center"><span className="h-9 w-9 animate-spin rounded-full border-2 border-[#face8d]/30 border-t-[#face8d]"/></div>}

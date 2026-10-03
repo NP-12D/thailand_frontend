@@ -1,0 +1,101 @@
+
+@import "tailwindcss";
+@font-face {
+    font-family: BitterRose;
+    src: url('/Bitter Rose DEMO.otf')
+}
+
+@theme {
+    --font-script: BitterRose, cursive
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: #050505;
+    color: #fff;
+    font-family: Arial, sans-serif
+}
+
+button {
+    cursor: pointer
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button { appearance: none; margin: 0 }
+input[type='number'] { appearance: textfield; -moz-appearance: textfield }
+* { scrollbar-width: thin; scrollbar-color: #3a3022 #090909 }
+*::-webkit-scrollbar { width: 8px; height: 8px }
+*::-webkit-scrollbar-track { background: #090909 }
+*::-webkit-scrollbar-thumb { background: #3a3022; border-radius: 999px }
+*::-webkit-scrollbar-thumb:hover { background: #c19355 }
+
+header button i {
+    height: 2px;
+    background: #fff
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: #bfbfbf
+}
+
+input,
+select {
+    width: 100%;
+    border: 1.5px solid #1a1a1a;
+    border-radius: 8px;
+    background: #0d0d0d;
+    padding: 14px 16px;
+    color: #fff;
+    outline: none
+}
+
+input:focus,
+select:focus {
+    border-color: #f8d49e
+}
+
+.form-title {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: #f8d49e
+}
+
+.form-subtitle {
+    margin-bottom: 30px;
+    text-align: center;
+    color: #8c8c8c
+}
+
+.primary {
+    width: 100%;
+    margin-top: 20px;
+    border: 0;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #e0b06b, #c19355);
+    padding: 16px;
+    color: #1a1206;
+    font-weight: 700;
+    text-transform: uppercase
+}
+
+.pill {
+    border: 0;
+    border-radius: 20px;
+    background: transparent;
+    padding: 10px 18px;
+    color: #fff9
+}
+
+.pill:hover {
+    background: #fff2;
+    color: #f8d49e
+}
+.auth-tab{width:50%;border:0;border-radius:9999px;background:transparent;padding:10px;color:#fff9}.auth-tab-active{background:#fff2;color:#f8d49e}.action-button{border:0;border-radius:8px;background:rgba(248,212,158,.1);padding:9px;font-size:12px}

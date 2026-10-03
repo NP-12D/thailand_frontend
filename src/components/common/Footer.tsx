@@ -1,0 +1,2 @@
+import { useLocation } from 'react-router-dom';
+export default function Footer() { const { pathname } = useLocation(); const inline = ['/menu','/blog','/story','/events','/book'].some((item) => pathname.startsWith(item)); return <footer className={`${inline ? 'relative' : 'fixed'} bottom-0 z-40 flex w-full flex-col items-center justify-between gap-2 border-t border-[#face8d]/10 bg-[#040404]/90 px-6 py-3 text-[13px] text-[#a3a3a3] backdrop-blur md:flex-row md:px-10 md:py-4`}><p>© all rights reserved</p><p>A little taste of Thailand in every bite.</p></footer>; }
