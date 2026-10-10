@@ -22,7 +22,7 @@ export default function MenuPage() {
   return (
     <main className="flex w-full items-stretch bg-[#0a0f0f] max-md:flex-col">
       <MenuImageColumn />
-      <div className="w-full overflow-y-auto bg-[#0a0f0f] pb-16 md:w-1/2">
+      <div className="w-full overflow-y-auto bg-[#070707] pb-16 md:w-1/2">
         {loading ? <Loader /> : null}
         {groups.map(([name, type, slug]) => (
           <MenuSection

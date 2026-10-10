@@ -10,7 +10,7 @@ export default function EventsPage() {
       .then(setItems);
   }, []);
   return (
-    <main className="min-h-screen bg-[#101010] pb-16 pt-24">
+    <main className="min-h-screen   bg-[#070707] pb-16 pt-24">
       <div className="text-center">
         <h1 className="font-script text-[40px] text-[#f6d79e]">
           Dining Event Types

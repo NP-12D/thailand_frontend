@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { BlogItem } from "../../types";
@@ -19,9 +18,9 @@ export default function ArticlePage() {
   }, [id]);
 
   return (
-    <main className="min-h-screen w-full bg-[#0a0f0f] px-4 pb-16 pt-[85px] sm:px-6 sm:pt-[110px]">
-      <div className="mx-auto max-w-[1200px]">
-        <Link to="/blog" className="inline-block mb-4">
+    <main className="min-h-screen w-full bg-[#070707] px-4 pb-16 pt-20 sm:px-6 md:pt-28">
+      <div className="mx-auto w-full max-w-[1200px] mb-6">
+        <Link to="/blog" className="inline-block">
           <Button>Go Back</Button>
         </Link>
       </div>
@@ -31,29 +30,32 @@ export default function ArticlePage() {
       ) : !item ? (
         <p className="mt-10 text-center text-white">Article not found.</p>
       ) : (
-        <article className="mx-auto mb-10 mt-2 flex w-full max-w-[1200px] flex-col gap-6 rounded-2xl p-5 outline outline-1 outline-[#face8d] sm:w-[95%] sm:p-6 md:mt-3 md:w-[90%] md:flex-row md:items-stretch md:gap-[22px] md:px-[30px] md:py-6">
+        <article className="mx-auto flex w-full max-w-[1100px] flex-col gap-6 rounded-2xl bg-[#0d0d0d] p-4 outline outline-1 outline-[#face8d] sm:p-6 lg:flex-row lg:items-center lg:gap-10 lg:p-8">
           
-          <div className="h-[380px] w-full shrink-0 overflow-hidden rounded-xl md:h-auto md:w-1/2 md:flex-1">
+          <div className="w-full shrink-0 overflow-hidden rounded-xl lg:w-1/2 lg:max-w-[500px]">
             <img
-              className="h-full w-full rounded-xl object-cover"
+              className="h-48 w-full object-cover sm:h-64 md:h-80 lg:h-[350px]"
               src={item.image}
               alt={item.title}
             />
           </div>
 
-          <div className="flex w-full flex-col items-center justify-center gap-3 py-2 text-center md:w-1/2 md:flex-1 md:gap-4 md:p-5">
+          <div className="flex w-full flex-col items-center text-center lg:w-1/2 lg:items-start lg:text-left">
             {item.createdAt && (
-              <span className="text-xs font-semibold tracking-widest text-[#face8d]">
+              <span className="mb-2 text-xs font-semibold tracking-widest text-[#face8d] sm:text-sm">
                 {item.createdAt}
               </span>
             )}
-            <h1 className="text-2xl font-bold tracking-wide text-white sm:text-3xl md:text-3xl lg:text-4xl">
+
+            <h1 className="text-xl font-bold tracking-wide text-white sm:text-2xl md:text-3xl lg:text-4xl">
               {item.title}
             </h1>
-            <p className="text-sm font-normal leading-relaxed text-white/80 sm:text-base md:text-lg md:leading-8">
+
+            <p className="mt-3 text-sm font-normal leading-relaxed text-white/80 sm:text-base md:leading-7">
               {item.info || item.story}
             </p>
           </div>
+
         </article>
       )}
     </main>

@@ -111,10 +111,10 @@ export default function BookingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-black pb-16 pt-[58px]">
+    <main className="min-h-screen  bg-[#070707] pb-16 pt-[58px]">
       <div className="flex min-h-screen flex-col md:flex-row">
         <aside className="relative flex min-h-[360px] w-full flex-col items-center justify-center gap-6 bg-[linear-gradient(#0007,#000c),url('/bg.png')] bg-cover text-center md:w-1/2">
-          <b className="absolute top-[70px] tracking-[3px]">Unique</b>
+          <b className="absolute top-[70px] tracking-[3px] hidden ">Unique</b>
           <div>
             <h2 className="font-script text-[38px] text-[#f8d49e]">
               Book a Table

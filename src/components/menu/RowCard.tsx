@@ -2,7 +2,7 @@ import { MenuItem } from "../../types";
 
 export default function RowCard({ item }: { item: MenuItem }) {
   return (
-    <article className="flex min-h-36 w-full items-center justify-between rounded-[10px] p-3 transition hover:outline hover:outline-[#face8d]">
+    <article className="flex min-h-36 w-full items-center justify-between  bg-[#0d0d0d] border border-white/10 rounded-[10px] p-3 transition hover:outline hover:outline-[#face8d]">
       <div className="flex items-center gap-4 sm:gap-7">
     
         <div className="h-[120px] w-[120px] shrink-0 overflow-hidden rounded-lg">

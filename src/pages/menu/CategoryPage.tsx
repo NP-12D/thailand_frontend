@@ -21,7 +21,7 @@ export default function CategoryPage() {
       .finally(() => setLoading(false));
   }, []);
   return (
-    <main className="min-h-screen bg-black px-3 pb-16 pt-20">
+    <main className="min-h-screen bg-[#070707] px-3 pb-16 pt-20">
       <Link to="/menu">
         <Button>Go back</Button>
       </Link>

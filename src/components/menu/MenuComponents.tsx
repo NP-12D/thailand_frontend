@@ -5,9 +5,8 @@ import RowCard from "./RowCard";
 export function MenuImageColumn() {
   return (
     <aside className="grid w-full grid-cols-1 grid-rows-[60vh] gap-0 overflow-hidden md:w-1/2 md:grid-rows-[120vh_1fr_1fr_1fr]">
-      {/* Header section (shows on both mobile and desktop) */}
       <div className="relative flex items-center justify-center bg-[linear-gradient(#000b,#000b),url('/menubg.png')] bg-cover text-center min-h-[60vh] md:min-h-0">
-        <b className="absolute top-14 text-3xl">Unique</b>
+        <b className="absolute top-14 text-3xl hidden">Unique</b>
         <div>
           <h1 className="font-script text-7xl text-[#face8d]">Check Out</h1>
           <p className="font-script text-5xl">Our menues</p>
@@ -45,7 +44,7 @@ export function MenuSection({
   items: MenuItem[];
 }) {
   return (
-    <section className="mx-auto pt-[70px] flex w-[80%] flex-col gap-6">
+    <section className="mx-auto pt-[70px] flex w-[90%] flex-col gap-6">
       <h2 className="font-script text-6xl text-[#face8d]">{name}</h2>
       {items.slice(0, 3).map((i) => (
         <MenuRow key={i.id} item={i} />
