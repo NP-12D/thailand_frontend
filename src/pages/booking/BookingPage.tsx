@@ -111,18 +111,19 @@ export default function BookingPage() {
   };
 
   return (
-    <main className="min-h-screen  bg-[#070707] pb-16 pt-[58px]">
-      <div className="flex min-h-screen flex-col md:flex-row">
-        <aside className="relative flex min-h-[360px] w-full flex-col items-center justify-center gap-6 bg-[linear-gradient(#0007,#000c),url('/bg.png')] bg-cover text-center md:w-1/2">
-          <b className="absolute top-[70px] tracking-[3px] hidden ">Unique</b>
+    <main className="w-full bg-[#070707] pt-[58px]">
+      <div className="flex min-h-[calc(100vh-58px)] flex-col md:flex-row">
+        <aside className="relative flex min-h-[300px] w-full flex-col items-center justify-center gap-6 bg-[linear-gradient(#0007,#000c),url('/bg.png')] bg-cover bg-center text-center sm:min-h-[360px] md:w-1/2">
+          <b className="absolute top-6 hidden tracking-[3px]">Unique</b>
           <div>
-            <h2 className="font-script text-[38px] text-[#f8d49e]">
+            <h2 className="font-script text-[32px] text-[#f8d49e] sm:text-[38px]">
               Book a Table
             </h2>
-            <h1 className="text-5xl font-extrabold">Reservation</h1>
+            <h1 className="text-4xl font-extrabold text-white sm:text-5xl">
+              Reservation
+            </h1>
           </div>
 
-          {/* Balanced Menu Container */}
           <div className="flex rounded-full border border-white/10 bg-white/5 p-1.5">
             <Pill active={tab === "book"} onClick={() => changeTab("book")}>
               {editing ? "Edit Table" : "Book a Table"}
@@ -136,7 +137,7 @@ export default function BookingPage() {
           </div>
         </aside>
 
-        <section className="flex w-full items-center justify-center bg-[#070707] p-7 md:w-1/2 md:p-16">
+        <section className="flex w-full flex-1 items-center justify-center bg-[#070707] px-4 py-8 sm:px-6 md:w-1/2 md:p-12 lg:p-16">
           <div className="w-full max-w-[520px]">
             {message && (
               <p className="mb-5 flex items-center justify-between rounded border border-red-500 bg-red-500/10 p-3 text-red-300">
@@ -185,7 +186,6 @@ export default function BookingPage() {
   );
 }
 
-// Moderately sized Pill Button
 function Pill({
   active,
   children,
@@ -198,7 +198,7 @@ function Pill({
   return (
     <button
       onClick={onClick}
-      className={`rounded-full px-4 py-2.5 text-sm font-medium transition-colors sm:px-5 ${
+      className={`rounded-full px-3 py-2 text-xs font-medium transition-colors sm:px-5 sm:py-2.5 sm:text-sm ${
         active
           ? "bg-white/15 text-[#f8d49e]"
           : "text-white/70 hover:bg-white/5 hover:text-white"
